@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
+
     :root {
       --pink: #f5054f;
       --white-soft: rgba(255, 255, 255, 0.84);
@@ -35,13 +36,36 @@
     }
 
     body {
+      position: relative;
+      background: #050505;
+    }
+
+    /* BACKGROUND */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
       background-image:
-        linear-gradient(rgba(18, 0, 10, 0.34),rgba(32, 0, 16, 0.52)),
+        linear-gradient(
+          rgba(18, 0, 10, 0.34),
+          rgba(32, 0, 16, 0.52)
+        ),
         url("IMG_6749.webp");
+
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+
+      filter: blur(5px);
+
+      transform: scale(1.04);
+
+      z-index: -1;
     }
+
+    /* TOP BAR */
 
     .top-bar {
       position: fixed;
@@ -53,6 +77,8 @@
       z-index: 100;
       box-shadow: 0 0 18px rgba(245, 5, 79, 0.4);
     }
+
+    /* SLIDER */
 
     .slider {
       width: 300vw;
@@ -76,7 +102,9 @@
       max-width: 720px;
       opacity: 0;
       transform: translateY(18px);
-      transition: opacity 0.75s ease, transform 0.75s ease;
+      transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
     }
 
     .content.is-visible {
@@ -89,11 +117,15 @@
       transform: translateY(-10px);
     }
 
+    /* LOGO */
+
     .logo {
       width: 92px;
       margin-bottom: 34px;
       opacity: 0.96;
     }
+
+    /* TYPOGRAPHY */
 
     h1,
     h2 {
@@ -124,16 +156,21 @@
       letter-spacing: 0.01em;
     }
 
+    /* SITE LINK */
+
     .site-link {
       position: fixed;
       left: 32px;
       bottom: 36px;
       z-index: 60;
+
       color: rgba(255, 255, 255, 0.72);
       text-decoration: none;
+
       font-size: 0.76rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
+
       transition: 0.25s ease;
       font-weight: 400;
     }
@@ -142,19 +179,29 @@
       color: var(--pink);
     }
 
+    /* BUTTON */
+
     .button {
       display: inline-block;
+
       padding: 13px 26px;
+
       border-radius: 999px;
       border: 1px solid var(--border-soft);
+
       color: white;
       text-decoration: none;
+
       font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
+
       background: rgba(255, 255, 255, 0.05);
+
       backdrop-filter: blur(10px);
+
       transition: 0.3s ease;
+
       font-weight: 400;
     }
 
@@ -164,26 +211,37 @@
       transform: translateY(-2px);
     }
 
+    /* NAVIGATION */
+
     .navigation {
       position: fixed;
       bottom: 34px;
       left: 50%;
       transform: translateX(-50%);
+
       display: flex;
       gap: 12px;
+
       z-index: 50;
     }
 
     .navigation button {
       width: 46px;
       height: 46px;
+
       border-radius: 50%;
+
       border: 1px solid rgba(255, 255, 255, 0.22);
+
       background: rgba(255, 255, 255, 0.06);
+
       color: white;
       font-size: 1rem;
+
       cursor: pointer;
+
       transition: 0.3s ease;
+
       backdrop-filter: blur(10px);
     }
 
@@ -192,30 +250,41 @@
       border-color: var(--pink);
     }
 
+    /* DOTS */
+
     .dots {
       position: fixed;
       right: 28px;
       top: 50%;
       transform: translateY(-50%);
+
       display: flex;
       flex-direction: column;
       gap: 12px;
+
       z-index: 50;
     }
 
     .dot {
       width: 8px;
       height: 8px;
+
       border-radius: 50%;
+
       background: rgba(255, 255, 255, 0.28);
+
       transition: 0.3s ease;
     }
 
     .dot.active {
       background: var(--pink);
+
       transform: scale(1.4);
+
       box-shadow: 0 0 10px rgba(245, 5, 79, 0.6);
     }
+
+    /* IMPRESSUM */
 
     .impressum {
       max-width: 700px;
@@ -230,8 +299,11 @@
     .impressum a {
       color: white;
       text-decoration: none;
+
       border-bottom: 1px solid var(--pink);
+
       padding-bottom: 3px;
+
       transition: 0.25s ease;
     }
 
@@ -251,7 +323,10 @@
       margin-top: 24px;
     }
 
+    /* MOBILE */
+
     @media (max-width: 700px) {
+
       .slide {
         padding: 28px;
       }
@@ -287,6 +362,7 @@
         font-size: 0.98rem;
       }
     }
+
   </style>
 </head>
 
@@ -294,55 +370,86 @@
 
   <div class="top-bar"></div>
 
-  <a href="#" class="site-link" onclick="goToSlide(0)">struber.life</a>
+  <a href="#" class="site-link" onclick="goToSlide(0)">
+    struber.life
+  </a>
 
   <main class="slider" id="slider">
 
+    <!-- SLIDE 1 -->
+
     <section class="slide">
+
       <div class="content is-visible">
 
-        <img src="AS-DOT_RGB.png" alt="Logo Alexander Struber" class="logo">
+        <img
+          src="AS-DOT_RGB.png"
+          alt="Logo Alexander Struber"
+          class="logo"
+        >
 
-        <h1>willkommen.</h1>
+        <h1>schön, dass du vorbeischaust.</h1>
 
         <p>
-          Schön, dass du vorbeischaust. Diese Seite ist ein kleiner digitaler Ort
-          für persönliche Einblicke, kreative Projekte und Informationen.
+          Hier finden sich persönliche Einblicke,
+          kreative Projekte und Informationen.
         </p>
 
-        <a href="#" class="button" onclick="goToSlide(1)">
+        <a
+          href="#"
+          class="button"
+          onclick="goToSlide(1)"
+        >
           Weiter
         </a>
 
       </div>
+
     </section>
 
+    <!-- SLIDE 2 -->
+
     <section class="slide">
+
       <div class="content">
 
         <h2>schönes. klares. echtes.</h2>
 
         <p>
-          Manchmal braucht es nicht viele Worte. Nur einen Ort, an dem Gestaltung,
-          Fotografie und Ideen ein wenig Raum bekommen. Ruhig, reduziert und mit
-          Blick für das Wesentliche.
+          Manchmal braucht es nicht viele Worte.
+          Nur einen Ort, an dem Gedanken,
+          Bilder und Ideen ein wenig Raum bekommen.
         </p>
 
-        <a href="#" class="button" onclick="goToSlide(2)">
+        <a
+          href="#"
+          class="button"
+          onclick="goToSlide(2)"
+        >
           Impressum
         </a>
 
       </div>
+
     </section>
 
+    <!-- SLIDE 3 -->
+
     <section class="slide">
+
       <div class="content impressum">
 
         <h2>Impressum</h2>
 
         <p><strong>Alexander Struber</strong></p>
-        <p>struber. werbung &amp; fotografie</p>
-        <p>Kirchgöming 11 · A-5114 Göming</p>
+
+        <p>
+          struber. werbung &amp; fotografie
+        </p>
+
+        <p>
+          Kirchgöming 11 · A-5114 Göming
+        </p>
 
         <p class="contact-line">
           alexander [at] struber [dot] cc
@@ -353,15 +460,24 @@
         </p>
 
         <p class="small-note">
-            <a href="https://firmen.wko.at/alexander-struber-struber-werbung-und-fotografie/salzburg/?firmaid=5c5f312b-af74-4585-b14a-0dd2e56300ef&standortid=1297&standortname=g%c3%b6ming%20%28gemeinde%29&suchbegriff=struber" target="_blank" rel="noopener">
+          Offizieller Eintrag im
+
+          <a
+            href="https://firmen.wko.at/alexander-struber-struber-werbung-und-fotografie/salzburg/?firmaid=5c5f312b-af74-4585-b14a-0dd2e56300ef&standortid=1297&standortname=g%c3%b6ming%20%28gemeinde%29&suchbegriff=struber"
+            target="_blank"
+            rel="noopener"
+          >
             WKO Firmen A-Z
           </a>
         </p>
 
       </div>
+
     </section>
 
   </main>
+
+  <!-- DOTS -->
 
   <div class="dots">
     <div class="dot active" id="dot0"></div>
@@ -369,72 +485,133 @@
     <div class="dot" id="dot2"></div>
   </div>
 
+  <!-- NAVIGATION -->
+
   <div class="navigation">
-    <button onclick="prevSlide()" aria-label="Vorherige Seite">‹</button>
-    <button onclick="nextSlide()" aria-label="Nächste Seite">›</button>
+
+    <button
+      onclick="prevSlide()"
+      aria-label="Vorherige Seite"
+    >
+      ‹
+    </button>
+
+    <button
+      onclick="nextSlide()"
+      aria-label="Nächste Seite"
+    >
+      ›
+    </button>
+
   </div>
 
+  <!-- SCRIPT -->
+
   <script>
+
     let currentSlide = 0;
     let isAnimating = false;
 
     const totalSlides = 3;
-    const slider = document.getElementById("slider");
-    const contents = document.querySelectorAll(".content");
-    const dots = document.querySelectorAll(".dot");
+
+    const slider =
+      document.getElementById("slider");
+
+    const contents =
+      document.querySelectorAll(".content");
+
+    const dots =
+      document.querySelectorAll(".dot");
 
     function updateDots() {
-      dots.forEach((dot) => dot.classList.remove("active"));
-      dots[currentSlide].classList.add("active");
+
+      dots.forEach((dot) =>
+        dot.classList.remove("active")
+      );
+
+      dots[currentSlide]
+        .classList.add("active");
     }
 
     function goToSlide(number) {
-      if (isAnimating || number === currentSlide) return;
+
+      if (
+        isAnimating ||
+        number === currentSlide
+      ) return;
 
       isAnimating = true;
 
-      contents[currentSlide].classList.remove("is-visible");
-      contents[currentSlide].classList.add("is-leaving");
+      contents[currentSlide]
+        .classList.remove("is-visible");
+
+      contents[currentSlide]
+        .classList.add("is-leaving");
 
       setTimeout(() => {
+
         currentSlide = number;
 
         slider.style.transform =
-          "translateX(-" + currentSlide * 100 + "vw)";
+          "translateX(-" +
+          currentSlide * 100 +
+          "vw)";
 
         updateDots();
 
         contents.forEach((content) => {
-          content.classList.remove("is-visible", "is-leaving");
+
+          content.classList.remove(
+            "is-visible",
+            "is-leaving"
+          );
+
         });
 
         setTimeout(() => {
-          contents[currentSlide].classList.add("is-visible");
+
+          contents[currentSlide]
+            .classList.add("is-visible");
+
           isAnimating = false;
+
         }, 180);
 
       }, 280);
     }
 
     function nextSlide() {
-      const next = (currentSlide + 1) % totalSlides;
+
+      const next =
+        (currentSlide + 1) % totalSlides;
+
       goToSlide(next);
     }
 
     function prevSlide() {
-      const previous = (currentSlide - 1 + totalSlides) % totalSlides;
+
+      const previous =
+        (currentSlide - 1 + totalSlides)
+        % totalSlides;
+
       goToSlide(previous);
     }
 
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowRight") {
-        nextSlide();
-      }
+    document.addEventListener(
+      "keydown",
+      (event) => {
 
-      if (event.key === "ArrowLeft") {
-        prevSlide();
+        if (event.key === "ArrowRight") {
+          nextSlide();
+        }
+
+        if (event.key === "ArrowLeft") {
+          prevSlide();
+        }
+
       }
-    });
+    );
+
   </script>
 
 </body>
